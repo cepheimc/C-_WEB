@@ -11,7 +11,7 @@ namespace JobExchange.DAL.Repositories
         private CategoryRepository categoryRepository;
         private CustomerRepository customerRepository;
         private ResumeRepository resumeRepository;
-        private UnemployedRepository unemployedRepository;
+        private EmployeeRepository employeeRepository;
         private VacancyRepository vacancyRepository;
 
         public EFUnitOfWork(string connectionString)
@@ -48,13 +48,13 @@ namespace JobExchange.DAL.Repositories
             }
         }
 
-        public IRepository<Unemployed> Unemployeds
+        public IRepository<Employee> Employees
         {
             get
             {
-                if (unemployedRepository == null)
-                    unemployedRepository = new UnemployedRepository(db);
-                return unemployedRepository;
+                if (employeeRepository == null)
+                    employeeRepository = new EmployeeRepository(db);
+                return employeeRepository;
             }
         }
 

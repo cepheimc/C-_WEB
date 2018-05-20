@@ -51,7 +51,7 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Resume.cs" />
-    <Compile Include="Entities\Unemployed.cs" />
+    <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Vacancy.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\EFUnitOfWork.cs" />
     <Compile Include="Repositories\ResumeRepository.cs" />
-    <Compile Include="Repositories\UnemployedRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\VacancyRepository.cs" />
   </ItemGroup>
   <ItemGroup>

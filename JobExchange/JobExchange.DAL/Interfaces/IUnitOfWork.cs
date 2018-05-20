@@ -8,7 +8,7 @@ namespace JobExchange.DAL.Interfaces
         IRepository<Category> Categories { get; }
         IRepository<Customer> Customers { get; }
         IRepository<Resume> Resumes { get; }
-        IRepository<Unemployed> Unemployeds { get; }
+        IRepository<Employee> Employees { get; }
         IRepository<Vacancy> Vacancies { get; }
         void Save();
     }

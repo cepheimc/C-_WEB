@@ -6,15 +6,15 @@ namespace JobExchange.DAL.Entities
 {
     public class Vacancy
     {
-        public int vacancy_Id { get; set; }
-        public string vacancy_name { get; set; }
-        public DateTime date { get; set; }
-        public string vacancy_descript { get; set; }
+        public int VacancyID { get; set; }
+        public string VacancyName { get; set; }
+        public DateTime Date { get; set; }
+        public string VacancyDescript { get; set; }
 
-        public int category_Id { get; set; }
-        public Category category { get; set; }
+        public int CategoryId { get; set; }
+        public Category Categories { get; set; }
 
-        public int customer_Id { get; set; }
-        public Customer customer { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customers { get; set; }
     }
 }

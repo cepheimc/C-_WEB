@@ -328,3 +328,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/JobExchange/JobExchange.BLL/DTO/CategoryDTO.cs
+/JobExchange/JobExchange.BLL/DTO/CustomerDTO.cs
+/JobExchange/JobExchange.BLL/DTO/EmployeeDTO.cs
+/JobExchange/JobExchange.BLL/DTO/ResumeDTO.cs
+/JobExchange/JobExchange.BLL/DTO/VacancyDTO.cs
+/JobExchange/JobExchange.BLL/JobExchange.BLL.csproj
