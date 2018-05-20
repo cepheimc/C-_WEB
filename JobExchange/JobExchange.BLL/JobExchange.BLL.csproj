@@ -52,6 +52,7 @@
     <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="DTO\ResumeDTO.cs" />
     <Compile Include="DTO\VacancyDTO.cs" />
+    <Compile Include="Infrastructure\ServiceModule.cs" />
     <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

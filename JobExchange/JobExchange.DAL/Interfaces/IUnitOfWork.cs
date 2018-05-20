@@ -3,7 +3,7 @@ using JobExchange.DAL.Entities;
 
 namespace JobExchange.DAL.Interfaces
 {
-    interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         IRepository<Category> Categories { get; }
         IRepository<Customer> Customers { get; }
