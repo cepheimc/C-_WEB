@@ -9,6 +9,8 @@ namespace JobExchange.DAL.Entities
         public string CategoryName { get; set; }
 
         public ICollection<Resume> Resumes { get; set; }
+
         public ICollection<Vacancy> Vacancies { get; set; }
+
     }
 }

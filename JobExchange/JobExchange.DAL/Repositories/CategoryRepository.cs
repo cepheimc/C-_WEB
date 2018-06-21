@@ -17,9 +17,24 @@ namespace JobExchange.DAL.Repositories
             this.db = context;
         }
 
-        public IEnumerable<Category> GetAll()
+        public IQueryable<Category> GetAll()
         {
             return db.Categories;
+        }
+
+        public IQueryable<Category> OrderByName()
+        {
+            return db.Categories.OrderBy(c => c.CategoryName);
+        }
+
+        public IQueryable<Category> OrderByDecName()
+        {
+            return db.Categories.OrderByDescending(c => c.CategoryName);
+        }
+
+        public IQueryable<Category> Where(string term)
+        {
+            return db.Categories.Where(r => r.CategoryName.Contains(term)).AsQueryable();
         }
 
         public Category Get(int id)
@@ -37,9 +52,9 @@ namespace JobExchange.DAL.Repositories
             db.Entry(category).State = EntityState.Modified;
         }
 
-        public IEnumerable<Category> Find(Func<Category, Boolean> predicate)
+        public IQueryable<Category> Find(Func<Category, Boolean> predicate)
         {
-            return db.Categories.Where(predicate).ToList();
+            return db.Categories.Where(predicate).AsQueryable();
         }
 
         public void Delete(int id)
@@ -48,5 +63,8 @@ namespace JobExchange.DAL.Repositories
             if (category != null)
                 db.Categories.Remove(category);
         }
+
+
+        
     }
 }

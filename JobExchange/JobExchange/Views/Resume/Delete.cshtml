@@ -1,0 +1,48 @@
+﻿@model JobExchange.Models.ResumeViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Уверены, что хотите удалить резюме?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumeDescript)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumeDescript)
+        </dd>        
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("назад", "Index")
+        </div>
+    }
+</div>
+

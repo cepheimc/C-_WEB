@@ -1,8 +1,11 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace JobExchange.BLL.DTO
 {
-    class CustomerDTO
+    public class CustomerDTO
     {
         public int CustomerId { get; set; }
         public string CustomerFirstName { get; set; }
@@ -10,5 +13,7 @@ namespace JobExchange.BLL.DTO
         public string CompanyName { get; set; }
         public string CompanyAddress { get; set; }
         public string CustomerDescript { get; set; }
+
+        public ICollection<VacancyDTO> Vacancies { get; set; }
     }
 }

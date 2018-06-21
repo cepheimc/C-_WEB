@@ -12,9 +12,14 @@ namespace JobExchange.DAL.Entities
         public string VacancyDescript { get; set; }
 
         public int CategoryId { get; set; }
-        public Category Categories { get; set; }
+        public string CategoryName { get; set; }
+        public Category Category { get; set; }
 
         public int CustomerId { get; set; }
-        public Customer Customers { get; set; }
+        public string CustomerFirstName { get; set; }
+        public string CustomerLastName { get; set; }
+        public string Company { get; set; }
+
+        public Customer Customer { get; set; }
     }
 }

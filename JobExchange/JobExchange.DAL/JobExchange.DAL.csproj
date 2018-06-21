@@ -53,6 +53,7 @@
     <Compile Include="Entities\Resume.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Vacancy.cs" />
+    <Compile Include="Interfaces\IPeopleRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

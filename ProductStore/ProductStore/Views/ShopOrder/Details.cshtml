@@ -1,0 +1,62 @@
+﻿@model ProductStore.Models.ShOrderViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopOrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShopOrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShOrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShOrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShopAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShExpDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShExpDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductQuantity)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShopOrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

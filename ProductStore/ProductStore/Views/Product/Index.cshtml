@@ -1,0 +1,64 @@
+﻿@model IQueryable<ProductStore.Models.ProductViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Продукты</h2>
+
+<p>
+    @Html.ActionLink("Загрузить новый товар", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Название
+        </th>
+        <th>
+            Количество
+        </th>
+        <th>
+            Цена
+        </th>
+        <th>
+            Active
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @item.ProductId
+        </td>
+        <td>
+            @item.ProductName
+        </td>
+        <td>
+            @item.ProductQuantity
+        </td>
+        <td>
+            @item.ProductPrice.ToString("# грн")
+        </td>
+        <td>
+            @item.IsPresent.ToString()
+        </td>
+        <td>
+            @Html.ActionLink("В заказ клиента", "MakeClientOrder", new { id = item.ProductId }) |
+            @Html.ActionLink("В заказ магазина", "MakeShopOrder", new { id = item.ProductId }) |
+            @Html.ActionLink("Редактировать", "Edit", new { id = item.ProductId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.ProductId })
+        </td>
+    </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Update data", "Update")
+</div>

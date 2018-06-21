@@ -28,13 +28,23 @@ namespace JobExchange.DAL.Repositories
             }
         }
 
-        public IRepository<Customer> Customers
+        public IPeopleRepository<Customer> Customers
         {
             get
             {
                 if (customerRepository == null)
                     customerRepository = new CustomerRepository(db);
                 return customerRepository;
+            }
+        }      
+
+        public IPeopleRepository<Employee> Employees
+        {
+            get
+            {
+                if (employeeRepository == null)
+                    employeeRepository = new EmployeeRepository(db);
+                return employeeRepository;
             }
         }
 
@@ -45,16 +55,6 @@ namespace JobExchange.DAL.Repositories
                 if (resumeRepository == null)
                     resumeRepository = new ResumeRepository(db);
                 return resumeRepository;
-            }
-        }
-
-        public IRepository<Employee> Employees
-        {
-            get
-            {
-                if (employeeRepository == null)
-                    employeeRepository = new EmployeeRepository(db);
-                return employeeRepository;
             }
         }
 

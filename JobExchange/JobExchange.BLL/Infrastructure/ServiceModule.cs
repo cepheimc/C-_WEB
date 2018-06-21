@@ -4,7 +4,7 @@ using JobExchange.DAL.Repositories;
 
 namespace JobExchange.BLL.Infrastructure
 {
-    class ServiceModule : NinjectModule
+    public class ServiceModule : NinjectModule
     {
         private string connectionString;
         public ServiceModule(string connection)

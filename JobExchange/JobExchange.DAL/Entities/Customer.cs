@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace JobExchange.DAL.Entities
@@ -13,6 +14,6 @@ namespace JobExchange.DAL.Entities
         public string CompanyAddress { get; set; }
         public string CustomerDescript { get; set; }
 
-        public ICollection<Vacancy> Vacancies { get; set; }
+        public ICollection<Vacancy> Vacancies { get; set; } 
     }
 }

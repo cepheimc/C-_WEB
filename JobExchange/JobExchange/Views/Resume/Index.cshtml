@@ -1,0 +1,52 @@
+﻿@model IQueryable<JobExchange.Models.ResumeViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Резюме</h2>
+
+<p>
+    @Html.ActionLink("Загрузить новое резюме", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>        
+        <th>
+            @Html.ActionLink("Название", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+               
+        <th>
+           Дата
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ResumeName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Детали", "Details", new { id = item.ResumeId }) |
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.ResumeId }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.ResumeId })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,62 @@
+﻿@model ProductStore.Models.ShOrderViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ShopOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopOrderId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShopOrderId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShopAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShopAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShExpDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShExpDate)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+
+

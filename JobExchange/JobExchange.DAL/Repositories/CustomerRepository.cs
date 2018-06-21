@@ -8,7 +8,7 @@ using JobExchange.DAL.Interfaces;
 
 namespace JobExchange.DAL.Repositories
 {
-    public class CustomerRepository : IRepository<Customer>
+    public class CustomerRepository : IPeopleRepository<Customer>
     {
         private JobExchangeContext db;
 
@@ -17,9 +17,34 @@ namespace JobExchange.DAL.Repositories
             this.db = context;
         }
 
-        public IEnumerable<Customer> GetAll()
+        public IQueryable<Customer> GetAll()
         {
             return db.Customers;
+        }
+
+        public IQueryable<Customer> Where(string term)
+        {
+            return db.Customers.Where(c => c.CustomerLastName.Contains(term) || c.CustomerFirstName.Contains(term)).AsQueryable();
+        }
+
+        public IQueryable<Customer> OrderByName()
+        {
+            return db.Customers.OrderBy(c => c.CustomerFirstName);
+        }
+
+        public IQueryable<Customer> OrderByDecName()
+        {
+            return db.Customers.OrderByDescending(c => c.CustomerFirstName);
+        }
+
+        public IQueryable<Customer> OrderBySurName()
+        {
+            return db.Customers.OrderBy(c => c.CustomerLastName);
+        }
+
+        public IQueryable<Customer> OrderByDecSurName()
+        {
+            return db.Customers.OrderByDescending(c => c.CustomerLastName);
         }
 
         public Customer Get(int id)
@@ -37,9 +62,9 @@ namespace JobExchange.DAL.Repositories
             db.Entry(customer).State = EntityState.Modified;
         }
 
-        public IEnumerable<Customer> Find(Func<Customer, Boolean> predicate)
+        public IQueryable<Customer> Find(Func<Customer, Boolean> predicate)
         {
-            return db.Customers.Where(predicate).ToList();
+            return db.Customers.Include(vacancy => vacancy.Vacancies).Where(predicate).AsQueryable();
         }
 
         public void Delete(int id)
@@ -48,5 +73,6 @@ namespace JobExchange.DAL.Repositories
             if (customer != null)
                 db.Customers.Remove(customer);
         }
+
     }
 }

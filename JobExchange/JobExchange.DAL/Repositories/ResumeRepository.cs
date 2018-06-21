@@ -17,14 +17,35 @@ namespace JobExchange.DAL.Repositories
             this.db = context;
         }
 
-        public IEnumerable<Resume> GetAll()
+        public IQueryable<Resume> GetAll()
         {
             return db.Resumes;
+        }
+
+        public IQueryable<Resume> OrderByName()
+        {
+            return db.Resumes.OrderBy(r => r.ResumeName);
+        }
+
+        public IQueryable<Resume> OrderByDecName()
+        {
+            return db.Resumes.OrderByDescending(r => r.ResumeName);
+        }
+
+        public IQueryable<Resume> Where(string term)
+        {
+            return db.Resumes.Where(r => r.ResumeName.Contains(term) 
+            || r.ResumeDescript.Contains(term) || r.CategoryName.Contains(term)).AsQueryable();
         }
 
         public Resume Get(int id)
         {
             return db.Resumes.Find(id);
+        }
+
+        public Resume Get(string search)
+        {
+            return db.Resumes.Find(search);
         }
 
         public void Create(Resume resume)
@@ -37,9 +58,9 @@ namespace JobExchange.DAL.Repositories
             db.Entry(resume).State = EntityState.Modified;
         }
 
-        public IEnumerable<Resume> Find(Func<Resume, Boolean> predicate)
+        public IQueryable<Resume> Find(Func<Resume, Boolean> predicate)
         {
-            return db.Resumes.Where(predicate).ToList();
+            return db.Resumes.Where(predicate).AsQueryable();
         }
 
         public void Delete(int id)

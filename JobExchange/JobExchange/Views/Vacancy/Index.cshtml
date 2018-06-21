@@ -1,0 +1,60 @@
+﻿@model IQueryable<JobExchange.Models.VacancyViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Список</h2>
+
+<p>
+    @Html.ActionLink("Добавить", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Поиск по имени: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.ActionLink("Название", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+                
+        <th>
+            Описание
+        </th>
+        <th>
+           Date
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.VacancyName)
+            </td>            
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.VacancyDescript)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Детали", "Details", new { id = item.VacancyId }) |
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.VacancyId }) |
+                @Html.ActionLink("Удалить", "Delete", new { id = item.VacancyId })
+            </td>
+        </tr>
+    }
+
+</table>
+

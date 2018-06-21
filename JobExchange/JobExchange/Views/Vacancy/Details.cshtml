@@ -1,0 +1,69 @@
+﻿@model JobExchange.Models.VacancyViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детально</h2>
+
+<div>
+    <h4>Вакансия</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.VacancyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VacancyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacancyDescript)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VacancyDescript)
+        </dd>
+             
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+        <dt>
+            Компания
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.CustomerFirstName)</th>
+                    <th>@Html.DisplayNameFor(model => model.CustomerLastName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Company)</th>
+                </tr>               
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.CustomerFirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.CustomerLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Company)
+
+                    </td>
+                    
+                </tr>
+               
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.VacancyId }) |
+    @Html.ActionLink("Назад", "Index")
+</p>
+

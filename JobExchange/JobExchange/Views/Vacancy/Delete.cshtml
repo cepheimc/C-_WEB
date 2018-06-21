@@ -1,0 +1,64 @@
+﻿@model JobExchange.Models.VacancyViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Уверены, что хотите удалить данные?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VacancyId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacancyId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacancyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacancyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacancyDescript)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacancyDescript)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>
+

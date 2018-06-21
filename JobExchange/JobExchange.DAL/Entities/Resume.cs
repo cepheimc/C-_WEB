@@ -11,11 +11,14 @@ namespace JobExchange.DAL.Entities
         public DateTime Date { get; set; }
         public string ResumeDescript { get; set; }
 
-        public int EmployedId { get; set; }
-        public Employee Employees { get; set; }
-
         public int CategoryId { get; set; }
-        public Category Categories { get; set; }
-      
+        public string CategoryName { get; set; }
+        public Category Category { get; set; }
+
+        public int EmployeeId { get; set; }
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeLastName { get; set; }
+        public Employee Employee { get; set; }
+
     }
 }
